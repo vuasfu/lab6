@@ -1,4 +1,4 @@
-<img width="467" height="422" alt="image" src="https://github.com/user-attachments/assets/5c97da5a-4e0a-4447-8eb6-9ce8abca47a5" /># lab6
+#lab6
 
 # ФИО - Булгакова Юлия Олеговна
 # Постановка задач
