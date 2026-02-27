@@ -5,25 +5,53 @@
 #include <algorithm>
 #include <iostream>
 
+/// <summary>
+/// Шаблонный класс для хранения коллекции элементов с операциями над множествами.
+/// </summary>
+/// <typeparam name="T">Тип элементов коллекции</typeparam>
 template <typename T>
 class GameCollection {
  public:
+  /// <summary>Конструктор по умолчанию. Создает пустую коллекцию.</summary>
   GameCollection() = default;
 
+  /// <summary>Добавляет элемент в коллекцию, если его еще нет.</summary>
+  /// <param name="element">Добавляемый элемент</param>
   void Add(const T& element);
+
+  /// <summary>Удаляет элемент из коллекции, если он существует.</summary>
+  /// <param name="element">Удаляемый элемент</param>
   void Remove(const T& element);
+
+  /// <summary>Проверяет наличие элемента в коллекции.</summary>
+  /// <param name="element">Проверяемый элемент</param>
+  /// <returns>true если элемент найден, иначе false</returns>
   bool Contains(const T& element) const;
 
+  /// <summary>Возвращает объединение текущей коллекции с другой.</summary>
+  /// <param name="other">Другая коллекция</param>
+  /// <returns>Новая коллекция, содержащая элементы из обеих</returns>
   GameCollection<T> Union(const GameCollection<T>& other) const;
+
+  /// <summary>Возвращает пересечение текущей коллекции с другой.</summary>
+  /// <param name="other">Другая коллекция</param>
+  /// <returns>Новая коллекция с элементами, присутствующими в обеих</returns>
   GameCollection<T> Intersect(const GameCollection<T>& other) const;
+
+  /// <summary>Возвращает разность текущей коллекции и другой.</summary>
+  /// <param name="other">Другая коллекция</param>
+  /// <returns>Новая коллекция с элементами, которые есть только в текущей</returns>
   GameCollection<T> Except(const GameCollection<T>& other) const;
 
+  /// <summary>Возвращает все элементы коллекции.</summary>
+  /// <returns>Вектор со всеми элементами</returns>
   std::vector<T> GetAllElements() const;
 
+  /// <summary>Выводит коллекцию в консоль в формате [элемент1, элемент2, ...]</summary>
   void Print() const;
 
  private:
-  std::vector<T> elements_;
+  std::vector<T> elements_;  ///< Внутреннее хранилище элементов
 };
 
 // Проверка наличия элемента
@@ -102,4 +130,4 @@ void GameCollection<T>::Print() const {
   std::cout << "]" << std::endl;
 }
 
-#endif  
+#endif
