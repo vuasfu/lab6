@@ -2,11 +2,18 @@
 #include <ctime>
 #include <string>
 
+/// <summary>Конструктор с параметрами.</summary>
+/// <param name="name">Имя человека</param>
+/// <param name="height">Рост в сантиметрах</param>
+/// <param name="day">День рождения (1-31)</param>
+/// <param name="month">Месяц рождения (1-12)</param>
+/// <param name="year">Год рождения</param>
 PersonWithBirthday::PersonWithBirthday(const std::string& name, int height,
                                        int day, int month, int year)
     : Person(name, height), day_(day), month_(month), year_(year) {}
 
-// Вычисление возраста
+/// <summary>Вычисляет текущий возраст на основе системной даты.</summary>
+/// <returns>Возраст в годах</returns>
 int PersonWithBirthday::GetAge() const {
   std::time_t t = std::time(nullptr);
   std::tm* now = std::localtime(&t);
@@ -18,9 +25,9 @@ int PersonWithBirthday::GetAge() const {
   return age;
 }
 
-// Получение знака зодиака
+/// <summary>Определяет знак зодиака по дате рождения.</summary>
+/// <returns>Название знака зодиака</returns>
 std::string PersonWithBirthday::GetZodiacSign() const {
-  // Даты для знаков зодиака
   struct Zodiac {
     int start_day;
     int start_month;
